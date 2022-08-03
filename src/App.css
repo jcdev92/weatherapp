@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,300;1,400;1,500&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Jost', sans-serif;
+}
+
+.App {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    width: 350px;
+    max-width: 500px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #2AFADF 0%, #4C83FF 100%);
+    border-radius: 10px;
+    box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+    padding-bottom: 25px;
+}
+
+.card-text {
+    display: flex;
+    gap: 1em;
+    padding-bottom: 1em;
+}
+
+.btn-primary {
+    background: #fff;
+    border: none;
+    border-radius: 30px;
+    width: auto;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    color: #ccccc;
+    font-size: 0.8em;
+    font-weight: bolder;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #4C83FF;
+    color: #fff;
+    box-shadow: none;
+}
