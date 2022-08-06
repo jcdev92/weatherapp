@@ -4,7 +4,7 @@ import './App.css'
 import CardWeather from './assets/components/CardWeather'
 
 function App() {
-  const [coords, setCoords] = useState()
+  const [coords, setCoords] = useState({})
 
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(

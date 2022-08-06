@@ -5,6 +5,7 @@ const CardWeather = ({ lat, lon }) => {
   const [weather, setWeather] = useState({});
   const [temp, setTemp] = useState({});
   const [isCelsius, setFahrenheit] = useState(true);
+  const [background, setBackground] = useState();
 
   useEffect(() => {
     if (lat) {
@@ -14,26 +15,33 @@ const CardWeather = ({ lat, lon }) => {
         .get(URL)
         .then((response) => {
           setWeather(response.data);
+          const temp = {
+            kelvin: response.data.main.temp,
+            fahrenheit: Math.round(response.data.main.temp * 9 / 5 - 459.67),
+            celsius: Math.round(response.data.main.temp - 273.15),
+          }
+          setTemp(temp);
         })
         .catch((error) => console.log(error));
     }
   }, [lat, lon]);
 
-  useEffect(() => {
-    if (weather) {
-      const kelvin = weather.main?.temp;
-      const celsius = (kelvin - 273.15).toFixed(2);
-      const fahrenheit = (celsius * 1.8 + 32).toFixed(2);
-      setTemp({
-        celsius,
-        fahrenheit,
-      });
-    }
-  }, [temp]);
+
 
   const handleChange = () => {
     isCelsius ? setFahrenheit(false) : setFahrenheit(true);
   };
+
+
+
+  // let backgroundClass = {
+  //   backgroundImage: `url(${background})`,
+  //   backgroundSize: "cover",
+  //   backgroundPosition: "center",
+  //   backgroundRepeat: "no-repeat",
+  //   height: "100vh",
+  //   width: "100vw",
+  // }
 
   return (
     <div>
@@ -64,7 +72,7 @@ const CardWeather = ({ lat, lon }) => {
           </p>
           <p className="card-text">
             <span>
-              <i class="fa-solid fa-temperature-low"></i>
+              <i className="fa-solid fa-temperature-low"></i>
             </span>
             <strong>Pressure:</strong> {weather.main?.pressure} mb
           </p>
