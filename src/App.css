@@ -51,6 +51,24 @@ body {
     box-shadow: none;
 }
 
+.loading-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(135deg, #2AFADF 0%, #4C83FF 100%);
+    border-radius: 10px;
+    box-shadow: 4px 4px 2px rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6);
+    padding-bottom: 25px;
+    font-size: 3em;
+}
+
+
+
 @media (max-width: 482px) {
     .card {
         width: 300px;
