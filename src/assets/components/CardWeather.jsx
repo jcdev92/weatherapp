@@ -23,6 +23,7 @@ const CardWeather = ({ lat, lon }) => {
             celsius: Math.round(response.data.main.temp - 273.15),
           };
           setTemp(temp);
+          setBackground(response.data.weather[0].main);
           setIsLoading(false);
         })
         .catch((error) => console.log(error));
@@ -32,21 +33,27 @@ const CardWeather = ({ lat, lon }) => {
   const handleChange = () => {
     isCelsius ? setFahrenheit(false) : setFahrenheit(true);
   };
+  
+  let url = `https://source.unsplash.com/1600x900/?${background}`;
 
-  // let backgroundClass = {
-  //   backgroundImage: `url(${background})`,
-  //   backgroundSize: "cover",
-  //   backgroundPosition: "center",
-  //   backgroundRepeat: "no-repeat",
-  //   height: "100vh",
-  //   width: "100vw",
-  // }
+  let backgroundClass = {
+    backgroundImage: `url(${url})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    height: "100vh",
+    width: "100vw",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  }
 
   if (isLoading) {
     return <LoadingInfo />;
   } else {
     return (
-      <div>
+      <div style={backgroundClass}>
         <div className="card">
           <h1>Weather App</h1>
           <div className="card-body">
