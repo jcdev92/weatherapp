@@ -64,7 +64,7 @@ const CardWeather = ({ lat, lon }) => {
               <span>
                 <i className="fas fa-cloud"></i>
               </span>
-              <strong>Clouds:</strong> {weather.weather?.[0].description}{" "}
+              <strong>Weather Status:</strong> {weather.weather?.[0].description}{" "}
               {weather.clouds?.all}%
             </p>
             <p className="card-text">
