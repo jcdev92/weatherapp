@@ -19,8 +19,8 @@ const CardWeather = ({ lat, lon }) => {
           setWeather(response.data);
           const temp = {
             kelvin: response.data.main.temp,
-            fahrenheit: Math.round((response.data.main.temp * 9) / 5 - 459.67),
-            celsius: Math.round(response.data.main.temp - 273.15),
+            fahrenheit: ((response.data.main.temp * 9)/ 5 - 459.67).toFixed(2),
+            celsius: (response.data.main.temp - 273.15).toFixed(2),
           };
           setTemp(temp);
           setBackground(response.data.weather[0].main);
@@ -34,9 +34,9 @@ const CardWeather = ({ lat, lon }) => {
     isCelsius ? setFahrenheit(false) : setFahrenheit(true);
   };
   
-  let url = `https://source.unsplash.com/1600x900/?${background}`;
+  const url = `https://source.unsplash.com/1600x900/?${background}`;
 
-  let backgroundClass = {
+  const backgroundClass = {
     backgroundImage: `url(${url})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
